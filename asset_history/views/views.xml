@@ -1,0 +1,39 @@
+<odoo>
+  <data>
+    <record id="view_account_asset_form_inherit" model="ir.ui.view">
+      <field name="name">account.asset.asset.form.inherit</field>
+      <field name="model">account.asset.asset</field>
+      <field name="inherit_id" ref="base_accounting_kit.view_account_asset_asset_form"/>
+      <field name="arch" type="xml">
+          <!-- Menambahkan Page Baru di dalam Notebook -->
+          <xpath expr="//notebook" position="inside">
+              <page string="Asset User History">
+                  <field name="usage_history_ids" mode="tree,form">
+                      <tree string="Usage History" editable="bottom">
+                          <control>
+                              <create name="add_line_control" string="Add a line"/>
+                          </control>
+                          <field name="employee_id"/>
+                          <field name="location"/>
+                          <field name="start_date"/>
+                          <field name="end_date"/>
+                          <field name="note"/>
+                      </tree>
+                      <form string="Usage History">
+                          <sheet>
+                              <group>
+                                  <field name="employee_id"/>
+                                  <field name="location"/>
+                                  <field name="start_date"/>
+                                  <field name="end_date"/>
+                                  <field name="note"/>
+                              </group>
+                          </sheet>
+                      </form>
+                  </field>
+              </page>
+          </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>
